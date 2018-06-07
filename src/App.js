@@ -7,6 +7,7 @@ import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import { Header } from './Components/common';
 import LoginForm from './Components/LoginForm';
+import Router from 'router';
 
 class App extends Component {
   componentWillMount() {
@@ -28,7 +29,7 @@ class App extends Component {
       <Provider store={store}>
         <View>
           <Header headerText="Manager App"/>
-          <LoginForm />
+          <Router />
         </View>
       </Provider>
     );
