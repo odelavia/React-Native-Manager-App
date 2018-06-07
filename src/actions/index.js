@@ -18,12 +18,14 @@ export const passwordChanged = (text) => {
 export const loginUser = ({email, password}) => {
   return (dispatch) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(user => loginUserSucess(dispatch, user))
-    .catch(() => {
-      firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(user => loginUserSucess(dispatch, user))
-      .catch(() => loginUserFail(dispatch));
-    });
+      .catch((error) => {
+        console.log(error);
+
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then(user => loginUserSucess(dispatch, user))
+          .catch(() => loginUserFail(dispatch));
+      });
   };
 };
 
