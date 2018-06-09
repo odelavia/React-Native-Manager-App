@@ -6,8 +6,8 @@ import firebase from 'firebase';
 import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import { Header } from './Components/common';
-import LoginForm from './Components/LoginForm';
-import Router from 'router';
+// import LoginForm from './Components/LoginForm';
+import Router from './Router';
 
 class App extends Component {
   componentWillMount() {
@@ -28,7 +28,6 @@ class App extends Component {
     return (
       <Provider store={store}>
         <View>
-          <Header headerText="Manager App"/>
           <Router />
         </View>
       </Provider>
@@ -37,3 +36,5 @@ class App extends Component {
 }
 
 export default App;
+
+// <Header headerText="Manager App"/>
